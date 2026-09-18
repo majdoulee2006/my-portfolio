@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://majdouleen-mahmoud.vercel.app/sitemap.xml
