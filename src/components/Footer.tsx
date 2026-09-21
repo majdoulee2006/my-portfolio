@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
         {/* Brand / Copyright */}
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="text-base font-bold text-white tracking-wide">
-            {personalInfo.name}
+            {t('footer.name')}
           </span>
           <p className="text-xs text-zinc-500 font-mono">
             {t('footer.subtitle')}

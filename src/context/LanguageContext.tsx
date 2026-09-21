@@ -15,6 +15,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const translations = {
   en: {
     nav: {
+      name: 'Majdouleen Mahmoud',
+      devTitle: 'Flutter & Mobile Specialist',
       about: 'About',
       projects: 'Projects',
       skills: 'Skills & Tech',
@@ -26,6 +28,7 @@ export const translations = {
       availableForHire: 'Available for hire',
     },
     hero: {
+      name: 'Majdouleen Mahmoud',
       status: 'Available for Junior Roles & Internships',
       greetingHi: "Hi, I'm",
       roles: [
@@ -47,6 +50,11 @@ export const translations = {
       emailCopied: 'Copied!',
       copyPhone: 'Copy Phone',
       phoneCopied: 'Copied!',
+      terminalTitle: 'majdouleen_dev_spec.dart',
+      gradPillLabel: 'GRADUATION SCORE',
+      gradPillVal: '96% Honors',
+      specPillLabel: 'SPECIALTY',
+      specPillVal: 'Flutter & Laravel',
     },
     stats: {
       gradScore: 'Graduation Score',
@@ -79,6 +87,13 @@ export const translations = {
       close: 'Close',
       visitSite: 'Visit Live Application',
       viewGithub: 'View GitHub Repository',
+      portfolioTag: 'Majdouleen Mahmoud • Portfolio',
+    },
+    dock: {
+      copyEmail: 'Copy Email',
+      copiedToast: 'Email copied to clipboard!',
+      call: 'Call',
+      hireMe: 'Hire Me',
     },
     tech: {
       badge: 'Technical Expertise & Stack',
@@ -129,12 +144,15 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
+      name: 'Majdouleen Mahmoud',
       subtitle: 'Full-Stack & Mobile Application Developer • Damascus, Syria',
       credit: 'Crafted with Flutter & Laravel expertise',
     },
   },
   ar: {
     nav: {
+      name: 'مجدولين محمود',
+      devTitle: 'مطورة تطبيقات الموبايل والأنظمة المتكاملة',
       about: 'عني',
       projects: 'المشاريع',
       skills: 'المهارات',
@@ -146,6 +164,7 @@ export const translations = {
       availableForHire: 'متاحة للعمل والتوظيف',
     },
     hero: {
+      name: 'مجدولين محمود',
       status: 'متاحة لفرص العمل والتدريب (Junior & Internships)',
       greetingHi: 'مرحباً، أنا',
       roles: [
@@ -167,6 +186,11 @@ export const translations = {
       emailCopied: 'تم النسخ!',
       copyPhone: 'نسخ الرقم',
       phoneCopied: 'تم النسخ!',
+      terminalTitle: 'majdouleen_dev_spec.dart',
+      gradPillLabel: 'معدل التخرج',
+      gradPillVal: '96% امتياز عالي',
+      specPillLabel: 'التخصص البرمجي',
+      specPillVal: 'Flutter و Laravel',
     },
     stats: {
       gradScore: 'مشروع التخرج',
@@ -199,6 +223,13 @@ export const translations = {
       close: 'إغلاق',
       visitSite: 'زيارة تطبيق الويب الحي',
       viewGithub: 'عرض المستودع على GitHub',
+      portfolioTag: 'معرض أعمال مجدولين محمود',
+    },
+    dock: {
+      copyEmail: 'نسخ الإيميل',
+      copiedToast: 'تم نسخ البريد بنجاح!',
+      call: 'اتصال',
+      hireMe: 'تواصل معي',
     },
     tech: {
       badge: 'الخبرات والمهارات التقنية',
@@ -249,6 +280,7 @@ export const translations = {
       whatsapp: 'واتساب',
     },
     footer: {
+      name: 'مجدولين محمود',
       subtitle: 'مطورة تطبيقات الموبايل والويب المتكاملة • دمشق، سوريا',
       credit: 'تم البناء والبرمجة بخبرات Flutter & Laravel',
     },

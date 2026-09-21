@@ -142,6 +142,19 @@ export const ProjectsSection: React.FC = () => {
                   {project.description}
                 </p>
 
+                {/* Project Mockup Preview Banner */}
+                {project.imageUrl && (
+                  <div className={`relative rounded-2xl overflow-hidden border border-zinc-800/80 shadow-lg group-hover:border-sky-500/40 transition-all ${isEduBridge ? 'h-48 sm:h-64 mt-3 mb-1' : 'h-36 mt-2 mb-1'}`}>
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                )}
+
                 {/* Feature preview bullet list if EduBridge */}
                 {isEduBridge && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">

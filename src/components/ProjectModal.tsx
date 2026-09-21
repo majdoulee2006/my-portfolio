@@ -72,6 +72,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Body Content */}
           <div className="p-6 sm:p-8 space-y-6 max-h-[65vh] overflow-y-auto">
             
+            {/* Project Mockup Banner */}
+            {project.imageUrl && (
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-xl max-h-72">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            )}
+
             {/* Overview */}
             <div className="space-y-2">
               <h3 className="text-xs font-mono uppercase text-zinc-400 tracking-wider">
@@ -131,7 +142,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Modal Footer Links */}
           <div className="p-6 bg-zinc-950 border-t border-zinc-800/80 flex items-center justify-between gap-4">
             <div className="text-xs text-zinc-500 font-mono hidden sm:block">
-              Majdouleen Mahmoud Portfolio
+              {t('modal.portfolioTag')}
             </div>
             <div className="flex flex-wrap items-center gap-3">
               {project.liveUrl && (

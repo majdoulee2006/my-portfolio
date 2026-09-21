@@ -49,10 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-white tracking-wide text-base group-hover:text-sky-400 transition-colors">
-                {personalInfo.name}
+                {t('nav.name')}
               </span>
               <span className="text-xs text-zinc-400 font-mono hidden sm:inline-block">
-                Flutter & Laravel Dev
+                {t('nav.devTitle')}
               </span>
             </div>
           </a>

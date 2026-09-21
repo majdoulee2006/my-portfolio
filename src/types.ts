@@ -16,6 +16,7 @@ export interface Project {
   liveUrl?: string;
   demoType?: 'mobile' | 'desktop' | 'web';
   accentColor?: string;
+  imageUrl?: string;
 }
 
 export interface SkillCategory {

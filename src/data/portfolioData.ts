@@ -43,7 +43,8 @@ export const projectsDataEn: Project[] = [
     githubUrl: 'https://github.com/majdoulee2006',
     liveUrl: 'https://edu-bradge.netlify.app/',
     demoType: 'mobile',
-    accentColor: 'from-emerald-500/20 via-sky-500/10 to-transparent'
+    accentColor: 'from-emerald-500/20 via-sky-500/10 to-transparent',
+    imageUrl: '/images/edubridge.jpg'
   },
   {
     id: 'mall-management',
@@ -68,7 +69,8 @@ export const projectsDataEn: Project[] = [
     ],
     githubUrl: 'https://github.com/majdoulee2006',
     demoType: 'desktop',
-    accentColor: 'from-cyan-500/20 via-blue-500/10 to-transparent'
+    accentColor: 'from-cyan-500/20 via-blue-500/10 to-transparent',
+    imageUrl: '/images/mall-management.jpg'
   },
   {
     id: 'attendance-verification',
@@ -149,7 +151,8 @@ export const projectsDataAr: Project[] = [
     githubUrl: 'https://github.com/majdoulee2006',
     liveUrl: 'https://edu-bradge.netlify.app/',
     demoType: 'mobile',
-    accentColor: 'from-emerald-500/20 via-sky-500/10 to-transparent'
+    accentColor: 'from-emerald-500/20 via-sky-500/10 to-transparent',
+    imageUrl: '/images/edubridge.jpg'
   },
   {
     id: 'mall-management',
@@ -174,7 +177,8 @@ export const projectsDataAr: Project[] = [
     ],
     githubUrl: 'https://github.com/majdoulee2006',
     demoType: 'desktop',
-    accentColor: 'from-cyan-500/20 via-blue-500/10 to-transparent'
+    accentColor: 'from-cyan-500/20 via-blue-500/10 to-transparent',
+    imageUrl: '/images/mall-management.jpg'
   },
   {
     id: 'attendance-verification',

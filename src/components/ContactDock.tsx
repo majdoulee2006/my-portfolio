@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { Mail, Github, Phone, Copy, Check, MessageSquare, ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -8,6 +9,7 @@ interface ContactDockProps {
 }
 
 export const ContactDock: React.FC<ContactDockProps> = ({ onContactClick }) => {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -33,7 +35,7 @@ export const ContactDock: React.FC<ContactDockProps> = ({ onContactClick }) => {
             className="absolute -top-12 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-emerald-500 text-white text-xs font-mono font-semibold shadow-lg flex items-center gap-1.5 whitespace-nowrap pointer-events-none"
           >
             <Check size={14} />
-            <span>Email copied to clipboard!</span>
+            <span>{t('dock.copiedToast')}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -45,12 +47,12 @@ export const ContactDock: React.FC<ContactDockProps> = ({ onContactClick }) => {
         <button
           onClick={handleCopyEmail}
           className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-zinc-800/80 text-zinc-300 hover:text-white transition-all text-xs font-medium group"
-          title="Copy Email Address"
+          title={t('dock.copyEmail')}
         >
           <div className="p-1.5 rounded-full bg-sky-500/10 text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
             {copied ? <Check size={14} /> : <Mail size={14} />}
           </div>
-          <span className="hidden sm:inline font-mono">Copy Email</span>
+          <span className="hidden sm:inline font-mono">{t('dock.copyEmail')}</span>
         </button>
 
         <div className="w-[1px] h-6 bg-zinc-800" />
@@ -75,12 +77,12 @@ export const ContactDock: React.FC<ContactDockProps> = ({ onContactClick }) => {
         <a
           href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
           className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-zinc-800/80 text-zinc-300 hover:text-white transition-all text-xs font-medium group"
-          title="Call Phone"
+          title={t('dock.call')}
         >
           <div className="p-1.5 rounded-full bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
             <Phone size={14} />
           </div>
-          <span className="hidden sm:inline font-mono">Call</span>
+          <span className="hidden sm:inline font-mono">{t('dock.call')}</span>
         </a>
 
         <div className="w-[1px] h-6 bg-zinc-800" />
@@ -91,7 +93,7 @@ export const ContactDock: React.FC<ContactDockProps> = ({ onContactClick }) => {
           className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white transition-all text-xs font-semibold shadow-md hover:scale-105 active:scale-95"
         >
           <MessageSquare size={14} />
-          <span>Hire Me</span>
+          <span>{t('dock.hireMe')}</span>
         </button>
 
         {/* Scroll To Top */}

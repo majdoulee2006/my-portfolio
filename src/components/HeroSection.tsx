@@ -94,7 +94,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
             {/* Name & Dynamic Role */}
             <div className="space-y-3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] font-display">
-                {t('hero.greetingHi')} <span className="gradient-text-accent">{personalInfo.name}</span>
+                {t('hero.greetingHi')} <span className="gradient-text-accent">{t('hero.name')}</span>
               </h1>
               
               {/* Dynamic Rotating Role Switcher */}
@@ -281,7 +281,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                     <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
                     <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                    <span className="text-xs font-mono text-zinc-400 ml-2">majdouleen_dev_spec.dart</span>
+                    <span className="text-xs font-mono text-zinc-400 ml-2">{t('hero.terminalTitle')}</span>
                   </div>
                   <Terminal size={14} className="text-zinc-500" />
                 </div>
@@ -314,13 +314,13 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
 
                 {/* Highlights Summary Pills */}
                 <div className="pt-4 border-t border-zinc-800/80 grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-left">
-                    <span className="text-[10px] text-zinc-500 font-mono block">GRADUATION SCORE</span>
-                    <span className="text-lg font-bold text-emerald-400 font-display">96% Honors</span>
+                  <div className={`p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 ${isRtl ? 'text-right' : 'text-left'}`}>
+                    <span className="text-[10px] text-zinc-500 font-mono block">{t('hero.gradPillLabel')}</span>
+                    <span className="text-lg font-bold text-emerald-400 font-display">{t('hero.gradPillVal')}</span>
                   </div>
-                  <div className="p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-left">
-                    <span className="text-[10px] text-zinc-500 font-mono block">SPECIALTY</span>
-                    <span className="text-lg font-bold text-sky-400 font-display">Flutter & Laravel</span>
+                  <div className={`p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 ${isRtl ? 'text-right' : 'text-left'}`}>
+                    <span className="text-[10px] text-zinc-500 font-mono block">{t('hero.specPillLabel')}</span>
+                    <span className="text-lg font-bold text-sky-400 font-display">{t('hero.specPillVal')}</span>
                   </div>
                 </div>
 
