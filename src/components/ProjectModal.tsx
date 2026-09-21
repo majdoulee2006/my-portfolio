@@ -74,11 +74,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             
             {/* Project Mockup Banner */}
             {project.imageUrl && (
-              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-xl max-h-72">
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-xl bg-zinc-950/90 flex items-center justify-center p-2 max-h-96">
                 <img
                   src={project.imageUrl}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full max-h-96 object-contain rounded-xl"
                 />
               </div>
             )}

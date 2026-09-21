@@ -15,7 +15,7 @@ import { motion } from 'framer-motion';
 export const ProjectsSection: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilterKey, setActiveFilterKey] = useState<string>('All');
-  const { language, t } = useLanguage();
+  const { language, t, isRtl } = useLanguage();
 
   const projects = getProjects(language);
 
@@ -71,6 +71,9 @@ export const ProjectsSection: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {filteredProjects.map((project, idx) => {
           const isEduBridge = project.id === 'edubridge';
+          const bentoSpan = isEduBridge
+            ? (activeFilterKey === 'All' ? 'md:col-span-2 md:row-span-2' : 'md:col-span-2')
+            : 'col-span-1';
 
           return (
             <motion.div
@@ -80,9 +83,7 @@ export const ProjectsSection: React.FC = () => {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: idx * 0.12 }}
               onClick={() => setSelectedProject(project)}
-              className={`group cursor-pointer relative glass-card rounded-[32px] p-6 sm:p-8 border border-zinc-800/80 glass-card-hover overflow-hidden flex flex-col justify-between ${
-                isEduBridge ? 'md:col-span-2 md:row-span-2' : 'col-span-1'
-              }`}
+              className={`group cursor-pointer relative glass-card rounded-[32px] p-6 sm:p-8 border border-zinc-800/80 glass-card-hover overflow-hidden flex flex-col justify-between ${bentoSpan}`}
             >
               
               {/* Background gradient accent */}
@@ -144,26 +145,36 @@ export const ProjectsSection: React.FC = () => {
 
                 {/* Project Mockup Preview Banner */}
                 {project.imageUrl && (
-                  <div className={`relative rounded-2xl overflow-hidden border border-zinc-800/80 shadow-lg group-hover:border-sky-500/40 transition-all ${isEduBridge ? 'h-48 sm:h-64 mt-3 mb-1' : 'h-36 mt-2 mb-1'}`}>
+                  <div className={`relative rounded-2xl overflow-hidden border border-zinc-800/80 shadow-lg group-hover:border-sky-500/40 transition-all ${
+                    isEduBridge 
+                      ? 'h-64 sm:h-80 md:h-[340px] bg-zinc-950/70 flex items-center justify-center p-2.5 mt-3 mb-2' 
+                      : 'h-36 mt-2 mb-1 bg-zinc-950'
+                  }`}>
                     <img
                       src={project.imageUrl}
                       alt={project.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className={`w-full h-full ${isEduBridge ? 'object-contain' : 'object-cover'} object-center group-hover:scale-[1.02] transition-transform duration-500`}
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none" />
                   </div>
                 )}
 
                 {/* Feature preview bullet list if EduBridge */}
                 {isEduBridge && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    {project.features.slice(0, 4).map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2 text-xs text-zinc-200 bg-zinc-900/70 p-3 rounded-2xl border border-zinc-800/70 font-sans">
-                        <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-                        <span className="truncate">{feat}</span>
-                      </div>
-                    ))}
+                  <div className="space-y-2.5 pt-2">
+                    <div className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <Sparkles size={13} className="text-emerald-400" />
+                      <span>{isRtl ? 'المميزات والمعمارية الأساسية للحل البرمجي' : 'Core Architecture & Platform Capabilities'}</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {project.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-start gap-2.5 text-xs text-zinc-200 bg-zinc-900/80 p-3 rounded-2xl border border-zinc-800/80 font-sans shadow-sm hover:border-emerald-500/30 transition-colors">
+                          <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                          <span className="leading-snug">{feat}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
@@ -174,11 +185,11 @@ export const ProjectsSection: React.FC = () => {
                 
                 {/* Metrics preview */}
                 {project.metrics && (
-                  <div className="flex items-center gap-5">
+                  <div className={`grid ${isEduBridge ? 'grid-cols-3' : 'grid-cols-2'} gap-2.5`}>
                     {project.metrics.map((m, mIdx) => (
-                      <div key={mIdx} className="flex flex-col">
-                        <span className="text-[10px] text-zinc-500 uppercase font-mono tracking-wider">{m.label}</span>
-                        <span className="text-sm font-bold text-white font-mono">{m.value}</span>
+                      <div key={mIdx} className="flex flex-col p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/60 shadow-sm">
+                        <span className="text-[10px] text-zinc-500 uppercase font-mono tracking-wider truncate">{m.label}</span>
+                        <span className="text-sm sm:text-base font-bold text-white font-mono mt-0.5">{m.value}</span>
                       </div>
                     ))}
                   </div>
@@ -189,7 +200,7 @@ export const ProjectsSection: React.FC = () => {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 text-[11px] font-mono font-medium"
+                      className="px-3 py-1 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 text-[11px] font-mono font-medium hover:border-sky-500/30 hover:text-white transition-colors"
                     >
                       {tech}
                     </span>
