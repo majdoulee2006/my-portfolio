@@ -44,24 +44,24 @@ const StatCard: React.FC<StatProps> = ({ icon, value, suffix = '', label, descri
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="glass-card rounded-3xl p-6 border border-zinc-800/80 shadow-xl glass-card-hover flex flex-col justify-between relative overflow-hidden group"
+      className="glass-card rounded-3xl p-6 border border-slate-200/80 shadow-md glass-card-hover flex flex-col justify-between relative overflow-hidden group"
     >
       <div className="flex items-center justify-between mb-4">
-        <div className={`p-3 rounded-2xl ${accentColor} border border-white/10 shadow-sm`}>
+        <div className={`p-3 rounded-2xl ${accentColor} border border-black/5 shadow-sm`}>
           {icon}
         </div>
-        <span className="text-3xl font-extrabold text-white font-display tracking-tight flex items-baseline">
+        <span className="text-3xl font-extrabold text-slate-800 font-display tracking-tight flex items-baseline">
           <span>{count}</span>
-          <span className="text-sky-400 ml-0.5">{suffix}</span>
+          <span className="text-sky-500 ml-0.5">{suffix}</span>
         </span>
       </div>
 
       <div className="space-y-1">
-        <h3 className="text-sm font-bold text-white font-display tracking-wide">{label}</h3>
-        <p className="text-xs text-zinc-400 font-sans leading-relaxed">{description}</p>
+        <h3 className="text-sm font-bold text-slate-800 font-display tracking-wide">{label}</h3>
+        <p className="text-xs text-slate-400 font-sans leading-relaxed">{description}</p>
       </div>
 
-      <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-sky-500/5 rounded-full blur-xl group-hover:bg-sky-500/15 transition-all" />
+      <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-sky-500/5 rounded-full blur-xl group-hover:bg-sky-500/10 transition-all" />
     </motion.div>
   );
 };

@@ -37,20 +37,20 @@ export const ProjectsSection: React.FC = () => {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-600 text-xs font-mono font-semibold">
             <Sparkles size={14} />
             <span>{t('projects.badge')}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-display">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-display">
             {t('projects.titlePrefix')} <span className="gradient-text-accent">{t('projects.titleAccent')}</span>
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base max-w-2xl font-sans">
+          <p className="text-slate-500 text-sm sm:text-base max-w-2xl font-sans">
             {t('projects.description')}
           </p>
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl glass-card border border-zinc-800/80 w-fit shadow-lg">
+        <div className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl glass-card border border-slate-200/80 w-fit shadow-sm">
           {filterOptions.map((opt) => (
             <button
               key={opt.key}
@@ -58,7 +58,7 @@ export const ProjectsSection: React.FC = () => {
               className={`px-4 py-2 rounded-xl text-xs font-semibold font-display transition-all ${
                 activeFilterKey === opt.key 
                   ? 'bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-md scale-[1.02]' 
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/50'
+                  : 'text-slate-500 hover:text-sky-700 hover:bg-sky-50/80'
               }`}
             >
               {opt.label}
@@ -83,7 +83,7 @@ export const ProjectsSection: React.FC = () => {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: idx * 0.12 }}
               onClick={() => setSelectedProject(project)}
-              className={`group cursor-pointer relative glass-card rounded-[32px] p-6 sm:p-8 border border-zinc-800/80 glass-card-hover overflow-hidden flex flex-col justify-between ${bentoSpan}`}
+              className={`group cursor-pointer relative glass-card rounded-[32px] p-6 sm:p-8 border border-slate-200/80 glass-card-hover overflow-hidden flex flex-col justify-between ${bentoSpan}`}
             >
               
               {/* Background gradient accent */}
@@ -127,21 +127,21 @@ export const ProjectsSection: React.FC = () => {
                         )}
                       </div>
 
-                      <div className="p-2.5 rounded-2xl bg-zinc-900/80 text-zinc-400 group-hover:text-white group-hover:bg-sky-500 group-hover:scale-110 transition-all duration-300 shadow-md">
+                      <div className="p-2.5 rounded-2xl bg-white/80 text-slate-400 group-hover:text-white group-hover:bg-sky-500 group-hover:scale-110 transition-all duration-300 shadow-md border border-slate-200">
                         <ArrowUpRight size={18} />
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="font-extrabold text-white group-hover:text-sky-300 transition-colors font-display text-2xl sm:text-3xl lg:text-4xl tracking-tight">
+                      <h3 className="font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors font-display text-2xl sm:text-3xl lg:text-4xl tracking-tight">
                         {project.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-zinc-400 font-mono mt-1">
+                      <p className="text-xs sm:text-sm text-slate-400 font-mono mt-1">
                         {project.subtitle}
                       </p>
                     </div>
 
-                    <p className="text-zinc-300 font-sans leading-relaxed text-sm sm:text-base max-w-3xl">
+                    <p className="text-slate-600 font-sans leading-relaxed text-sm sm:text-base max-w-3xl">
                       {project.description}
                     </p>
                   </div>
@@ -174,8 +174,8 @@ export const ProjectsSection: React.FC = () => {
 
                     {/* Right: Core Features List */}
                     <div className="lg:col-span-7 flex flex-col justify-center space-y-3">
-                      <div className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-2">
-                        <Sparkles size={14} className="text-emerald-400" />
+                      <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                        <Sparkles size={14} className="text-emerald-500" />
                         <span>{isRtl ? 'المميزات والمعمارية الأساسية للحل البرمجي' : 'Core Architecture & Platform Capabilities'}</span>
                       </div>
                       
@@ -183,9 +183,9 @@ export const ProjectsSection: React.FC = () => {
                         {project.features.map((feat, fIdx) => (
                           <div
                             key={fIdx}
-                            className="flex items-start gap-2.5 p-3 rounded-2xl bg-zinc-900/75 border border-zinc-800/80 hover:border-emerald-500/30 hover:bg-zinc-900 transition-all text-xs text-zinc-200 shadow-sm"
+                            className="flex items-start gap-2.5 p-3 rounded-2xl bg-white/70 border border-slate-200/80 hover:border-emerald-400/40 hover:bg-emerald-50/40 transition-all text-xs text-slate-700 shadow-sm"
                           >
-                            <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                            <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
                             <span className="leading-snug">{feat}</span>
                           </div>
                         ))}
@@ -195,13 +195,13 @@ export const ProjectsSection: React.FC = () => {
                   </div>
 
                   {/* 3. Bottom Area: Metrics Grid & Tech Chips */}
-                  <div className="pt-6 border-t border-zinc-800/80 flex flex-col gap-4">
+                  <div className="pt-6 border-t border-slate-200/70 flex flex-col gap-4">
                     {project.metrics && (
                       <div className="grid grid-cols-3 gap-3">
                         {project.metrics.map((m, mIdx) => (
-                          <div key={mIdx} className="flex flex-col p-3.5 rounded-2xl bg-zinc-900/80 border border-zinc-800/80 shadow-sm">
-                            <span className="text-[10px] text-zinc-500 uppercase font-mono tracking-wider truncate">{m.label}</span>
-                            <span className="text-sm sm:text-base font-bold text-white font-mono mt-0.5">{m.value}</span>
+                          <div key={mIdx} className="flex flex-col p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
+                            <span className="text-[10px] text-slate-400 uppercase font-mono tracking-wider truncate">{m.label}</span>
+                            <span className="text-sm sm:text-base font-bold text-slate-800 font-mono mt-0.5">{m.value}</span>
                           </div>
                         ))}
                       </div>
@@ -211,7 +211,7 @@ export const ProjectsSection: React.FC = () => {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3.5 py-1.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 text-xs font-mono font-medium hover:border-sky-500/40 hover:text-white transition-colors"
+                          className="px-3.5 py-1.5 rounded-xl bg-slate-100/90 border border-slate-200 text-slate-600 text-xs font-mono font-medium hover:border-sky-400/60 hover:text-sky-700 transition-colors"
                         >
                           {tech}
                         </span>
@@ -240,48 +240,48 @@ export const ProjectsSection: React.FC = () => {
                         )}
                       </div>
 
-                      <div className="p-2.5 rounded-2xl bg-zinc-900/80 text-zinc-400 group-hover:text-white group-hover:bg-sky-500 group-hover:scale-110 transition-all duration-300 shadow-md">
+                      <div className="p-2.5 rounded-2xl bg-white/80 text-slate-400 group-hover:text-white group-hover:bg-sky-500 group-hover:scale-110 transition-all duration-300 shadow-md border border-slate-200">
                         <ArrowUpRight size={18} />
                       </div>
                     </div>
 
                     {/* Title & Subtitle */}
                     <div>
-                      <h3 className="font-extrabold text-white group-hover:text-sky-300 transition-colors font-display text-xl sm:text-2xl">
+                      <h3 className="font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors font-display text-xl sm:text-2xl">
                         {project.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-zinc-400 font-mono mt-1">
+                      <p className="text-xs sm:text-sm text-slate-400 font-mono mt-1">
                         {project.subtitle}
                       </p>
                     </div>
 
                     {/* Description */}
-                    <p className="text-zinc-300 font-sans leading-relaxed text-xs sm:text-sm">
+                    <p className="text-slate-600 font-sans leading-relaxed text-xs sm:text-sm">
                       {project.description}
                     </p>
 
                     {/* Project Mockup Preview Banner */}
                     {project.imageUrl && (
-                      <div className="relative rounded-2xl overflow-hidden border border-zinc-800/80 shadow-lg group-hover:border-sky-500/40 transition-all h-36 mt-2 mb-1 bg-zinc-950">
+                      <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg group-hover:border-sky-400/40 transition-all h-36 mt-2 mb-1 bg-white">
                         <img
                           src={project.imageUrl}
                           alt={project.title}
                           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-50/20 via-transparent to-transparent pointer-events-none" />
                       </div>
                     )}
                   </div>
 
                   {/* Card Bottom - Metrics & Tech Stack */}
-                  <div className="pt-6 mt-6 border-t border-zinc-800/70 flex flex-col gap-4">
+                  <div className="pt-6 mt-6 border-t border-slate-200/70 flex flex-col gap-4">
                     {project.metrics && (
                       <div className="grid grid-cols-2 gap-2.5">
                         {project.metrics.map((m, mIdx) => (
-                          <div key={mIdx} className="flex flex-col p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/60 shadow-sm">
-                            <span className="text-[10px] text-zinc-500 uppercase font-mono tracking-wider truncate">{m.label}</span>
-                            <span className="text-sm font-bold text-white font-mono mt-0.5">{m.value}</span>
+                          <div key={mIdx} className="flex flex-col p-3 rounded-2xl bg-white/80 border border-slate-200/60 shadow-sm">
+                            <span className="text-[10px] text-slate-400 uppercase font-mono tracking-wider truncate">{m.label}</span>
+                            <span className="text-sm font-bold text-slate-800 font-mono mt-0.5">{m.value}</span>
                           </div>
                         ))}
                       </div>
@@ -291,7 +291,7 @@ export const ProjectsSection: React.FC = () => {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 text-[11px] font-mono font-medium hover:border-sky-500/30 hover:text-white transition-colors"
+                          className="px-3 py-1 rounded-xl bg-slate-100/90 border border-slate-200 text-slate-600 text-[11px] font-mono font-medium hover:border-sky-400/40 hover:text-sky-700 transition-colors"
                         >
                           {tech}
                         </span>

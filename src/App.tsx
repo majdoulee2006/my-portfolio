@@ -18,7 +18,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans relative selection:bg-sky-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans relative selection:bg-sky-500 selection:text-white">
       
       {/* Scroll Progress Indicator */}
       <ScrollProgress />
