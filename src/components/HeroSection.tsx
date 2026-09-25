@@ -61,21 +61,21 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
   return (
     <section id="about" className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-radial-gradient">
       
-      {/* Background ambient glowing gradients with Parallax scroll */}
-      <motion.div 
-        style={{ y: blobY1 }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none animate-glow-pulse" 
+      {/* Background ambient glowing gradients - GPU Optimized */}
+      <div 
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[64px] pointer-events-none transform-gpu" 
       />
-      <motion.div 
-        style={{ y: blobY2 }}
-        className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-indigo-500/15 rounded-full blur-[120px] pointer-events-none" 
+      <div 
+        className="absolute top-1/3 right-10 w-[350px] h-[350px] bg-indigo-500/15 rounded-full blur-[56px] pointer-events-none transform-gpu" 
       />
-      <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none" />
+      <div 
+        className="absolute bottom-10 left-10 w-[380px] h-[380px] bg-emerald-500/10 rounded-full blur-[56px] pointer-events-none transform-gpu" 
+      />
 
       {/* Subtle Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
-      <motion.div style={{ scale: heroScale }} className="max-w-6xl mx-auto w-full relative z-10">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -88,7 +88,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
           >
             
             {/* Live Availability Status Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-emerald-500/30 bg-emerald-950/30 text-emerald-300 text-xs font-semibold tracking-wide w-fit shadow-lg shadow-emerald-950/40">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-emerald-500/30 bg-emerald-50/80 text-emerald-700 text-xs font-semibold tracking-wide w-fit shadow-md shadow-emerald-200/60">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
@@ -98,7 +98,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
 
             {/* Name & Dynamic Role */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] font-display">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] font-display">
                 {t('hero.greetingHi')} <span className="gradient-text-accent">{t('hero.name')}</span>
               </h1>
               
@@ -121,13 +121,13 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
             </div>
 
             {/* Location & Graduation Info Pills */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-400 font-mono">
-              <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-200">
-                <MapPin size={14} className="text-sky-400" />
+            <div className="flex flex-wrap items-center gap-2.5 text-xs text-slate-500 font-mono">
+              <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-700 shadow-sm">
+                <MapPin size={14} className="text-sky-500" />
                 <span>{t('hero.location')}</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-200">
-                <GraduationCap size={14} className="text-indigo-400" />
+              <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-700 shadow-sm">
+                <GraduationCap size={14} className="text-indigo-500" />
                 <span>{t('hero.institution')}</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold shadow-sm">
@@ -141,13 +141,13 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
             </div>
 
             {/* Biography */}
-            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl font-sans font-normal">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl font-sans font-normal">
               {t('hero.bio')}
             </p>
 
             {/* Specializations Tag Chips */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="text-xs text-zinc-500 font-mono uppercase tracking-wider mr-1">{t('hero.coreTech')}</span>
+              <span className="text-xs text-slate-400 font-mono uppercase tracking-wider mr-1">{t('hero.coreTech')}</span>
               {[
                 { name: 'Flutter', color: 'bg-sky-500/10 text-sky-400 border-sky-500/25' },
                 { name: 'Dart', color: 'bg-blue-500/10 text-blue-400 border-blue-500/25' },
@@ -206,7 +206,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
               {/* View Projects CTA */}
               <a
                 href="#projects"
-                className="px-5 py-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:bg-zinc-800 flex items-center gap-2"
+                className="px-5 py-3.5 rounded-xl bg-white/90 border border-slate-200 hover:border-sky-300 text-slate-600 hover:text-sky-700 font-semibold text-sm transition-all duration-300 hover:bg-sky-50/80 shadow-sm flex items-center gap-2"
               >
                 <span>{t('hero.viewProjects')}</span>
                 <ArrowDown size={16} className="text-zinc-400" />
@@ -215,7 +215,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
             </div>
 
             {/* Direct Quick Info Action Bar */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-5 border-t border-zinc-800/80">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-5 border-t border-slate-200/80">
               
               {/* Email Copy Card */}
               <div 
@@ -226,8 +226,8 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                   <Mail size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] text-zinc-500 font-mono uppercase tracking-wider">{t('contact.emailLabel')}</span>
-                  <span className="text-xs font-semibold text-zinc-200 truncate group-hover:text-sky-400 transition-colors">
+                  <span className="text-[10px] text-slate-400 font-mono uppercase tracking-wider">{t('contact.emailLabel')}</span>
+                  <span className="text-xs font-semibold text-slate-700 truncate group-hover:text-sky-600 transition-colors">
                     {copiedEmail ? t('hero.emailCopied') : personalInfo.email}
                   </span>
                 </div>
@@ -244,8 +244,8 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                   <Github size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] text-zinc-500 font-mono uppercase tracking-wider">GitHub</span>
-                  <span className="text-xs font-semibold text-zinc-200 truncate group-hover:text-indigo-400 transition-colors">
+                  <span className="text-[10px] text-slate-400 font-mono uppercase tracking-wider">GitHub</span>
+                  <span className="text-xs font-semibold text-slate-700 truncate group-hover:text-indigo-600 transition-colors">
                     {personalInfo.github}
                   </span>
                 </div>
@@ -260,8 +260,8 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                   <Phone size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] text-zinc-500 font-mono uppercase tracking-wider">{t('contact.phoneLabel')}</span>
-                  <span className="text-xs font-semibold text-zinc-200 truncate group-hover:text-emerald-400 transition-colors">
+                  <span className="text-[10px] text-slate-400 font-mono uppercase tracking-wider">{t('contact.phoneLabel')}</span>
+                  <span className="text-xs font-semibold text-slate-700 truncate group-hover:text-emerald-600 transition-colors">
                     {personalInfo.phone}
                   </span>
                 </div>
@@ -280,30 +280,30 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
           >
             
             {/* Glowing border card wrapper */}
-            <div className="relative rounded-[32px] p-1 bg-gradient-to-br from-sky-500/30 via-indigo-500/20 to-purple-500/30 shadow-2xl shadow-sky-500/10">
+            <div className="relative rounded-[32px] p-[1.5px] bg-gradient-to-br from-sky-400/50 via-indigo-400/30 to-purple-400/40 shadow-2xl shadow-sky-200/40">
               
-              <div className="rounded-[28px] bg-zinc-950/90 backdrop-blur-xl p-6 border border-zinc-800/80 space-y-5 overflow-hidden relative">
+              <div className="rounded-[28px] bg-white/95 backdrop-blur-xl p-6 border border-slate-100 space-y-5 overflow-hidden relative">
                 
                 {/* Visual Card Header with Tab Switcher */}
-                <div className="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                    <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                    <span className="text-xs font-mono text-zinc-400 ml-2 hidden sm:inline-block">
+                    <span className="w-3 h-3 rounded-full bg-red-400/90 inline-block"></span>
+                    <span className="w-3 h-3 rounded-full bg-amber-400/90 inline-block"></span>
+                    <span className="w-3 h-3 rounded-full bg-emerald-400/90 inline-block"></span>
+                    <span className="text-xs font-mono text-slate-400 ml-2 hidden sm:inline-block">
                       {cardView === 'profile' ? (isRtl ? 'ملف_المطور.dart' : 'developer_profile.dart') : t('hero.terminalTitle')}
                     </span>
                   </div>
 
                   {/* Dual Mode Switcher Tabs */}
-                  <div className="flex items-center gap-1 bg-zinc-900/90 p-1 rounded-xl border border-zinc-800 text-[11px] font-mono">
+                  <div className="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl border border-slate-200 text-[11px] font-mono">
                     <button
                       type="button"
                       onClick={() => setCardView('profile')}
                       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                         cardView === 'profile'
-                          ? 'bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/35 shadow-sm'
-                          : 'text-zinc-400 hover:text-zinc-200'
+                          ? 'bg-sky-500/15 text-sky-700 font-semibold border border-sky-400/40 shadow-sm'
+                          : 'text-slate-400 hover:text-slate-600'
                       }`}
                     >
                       <User size={13} />
@@ -314,8 +314,8 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                       onClick={() => setCardView('code')}
                       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                         cardView === 'code'
-                          ? 'bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/35 shadow-sm'
-                          : 'text-zinc-400 hover:text-zinc-200'
+                          ? 'bg-purple-500/10 text-purple-700 font-semibold border border-purple-400/35 shadow-sm'
+                          : 'text-slate-400 hover:text-slate-600'
                       }`}
                     >
                       <Code2 size={13} />
@@ -334,23 +334,23 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                     className="space-y-4"
                   >
                     {/* Profile ID Card Header */}
-                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-purple-500/10 border border-sky-500/20">
-                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400 via-indigo-500 to-purple-600 p-0.5 shadow-lg shadow-sky-500/20 shrink-0">
-                        <div className="w-full h-full bg-zinc-950 rounded-[14px] flex items-center justify-center font-display font-extrabold text-base sm:text-lg text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-indigo-300">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-sky-50 via-indigo-50/60 to-purple-50/50 border border-sky-200/60">
+                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400 via-indigo-500 to-purple-600 p-0.5 shadow-lg shadow-sky-300/30 shrink-0">
+                        <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center font-display font-extrabold text-base sm:text-lg text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">
                           MM
                         </div>
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-sm sm:text-base font-bold text-white font-display truncate">
+                          <h3 className="text-sm sm:text-base font-bold text-slate-800 font-display truncate">
                             {t('hero.name')}
                           </h3>
                           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" title="Ready to Work" />
                         </div>
-                        <p className="text-xs text-sky-400 font-mono truncate">
+                        <p className="text-xs text-sky-600 font-mono truncate">
                           Flutter & Mobile Specialist
                         </p>
-                        <p className="text-[11px] text-zinc-400 font-sans truncate">
+                        <p className="text-[11px] text-slate-400 font-sans truncate">
                           {t('hero.institution')}
                         </p>
                       </div>
@@ -408,25 +408,25 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                     </div>
 
                     {/* Core Technical Highlights Chips */}
-                    <div className="p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-2">
-                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">
+                    <div className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/80 space-y-2">
+                      <span className="text-[10px] text-slate-400 font-mono uppercase tracking-wider block">
                         {isRtl ? 'المعمارية البرمجية الأساسية' : 'Core Architecture Stack'}
                       </span>
                       <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
-                          <Smartphone size={13} className="text-sky-400 shrink-0" />
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-white border border-slate-100 text-slate-600 shadow-xs">
+                          <Smartphone size={13} className="text-sky-500 shrink-0" />
                           <span className="truncate">Flutter (BLoC)</span>
                         </div>
-                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
-                          <Terminal size={13} className="text-red-400 shrink-0" />
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-white border border-slate-100 text-slate-600 shadow-xs">
+                          <Terminal size={13} className="text-red-500 shrink-0" />
                           <span className="truncate">Laravel REST</span>
                         </div>
-                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
-                          <Database size={13} className="text-amber-400 shrink-0" />
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-white border border-slate-100 text-slate-600 shadow-xs">
+                          <Database size={13} className="text-amber-500 shrink-0" />
                           <span className="truncate">MySQL Relational</span>
                         </div>
-                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
-                          <Zap size={13} className="text-purple-400 shrink-0" />
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-white border border-slate-100 text-slate-600 shadow-xs">
+                          <Zap size={13} className="text-purple-500 shrink-0" />
                           <span className="truncate">C# .NET Desktop</span>
                         </div>
                       </div>
@@ -438,7 +438,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="font-mono text-xs space-y-2 text-zinc-300 leading-relaxed overflow-x-auto"
+                    className="font-mono text-xs space-y-2 text-slate-600 leading-relaxed overflow-x-auto"
                   >
                     <p className="text-purple-400">class <span className="text-sky-300">SoftwareEngineer</span> &#123;</p>
                     <p className="pl-4 text-zinc-400">// Core Stack Architecture</p>
@@ -466,14 +466,14 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                 )}
 
                 {/* Highlights Summary Pills */}
-                <div className="pt-4 border-t border-zinc-800/80 grid grid-cols-2 gap-3">
-                  <div className={`p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 ${isRtl ? 'text-right' : 'text-left'}`}>
-                    <span className="text-[10px] text-zinc-500 font-mono block">{t('hero.gradPillLabel')}</span>
-                    <span className="text-lg font-bold text-amber-400 font-display">{t('hero.gradPillVal')}</span>
+                <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
+                  <div className={`p-3 rounded-2xl bg-amber-50/80 border border-amber-200/60 ${isRtl ? 'text-right' : 'text-left'}`}>
+                    <span className="text-[10px] text-slate-400 font-mono block">{t('hero.gradPillLabel')}</span>
+                    <span className="text-lg font-bold text-amber-600 font-display">{t('hero.gradPillVal')}</span>
                   </div>
-                  <div className={`p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 ${isRtl ? 'text-right' : 'text-left'}`}>
-                    <span className="text-[10px] text-zinc-500 font-mono block">{t('hero.specPillLabel')}</span>
-                    <span className="text-lg font-bold text-sky-400 font-display">{t('hero.specPillVal')}</span>
+                  <div className={`p-3 rounded-2xl bg-sky-50/80 border border-sky-200/60 ${isRtl ? 'text-right' : 'text-left'}`}>
+                    <span className="text-[10px] text-slate-400 font-mono block">{t('hero.specPillLabel')}</span>
+                    <span className="text-lg font-bold text-sky-600 font-display">{t('hero.specPillVal')}</span>
                   </div>
                 </div>
 
@@ -485,7 +485,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
 
         </div>
 
-      </motion.div>
+      </div>
 
     </section>
   );

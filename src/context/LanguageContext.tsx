@@ -148,8 +148,9 @@ export const translations = {
     },
     footer: {
       name: 'Majdouleen Mahmoud',
-      subtitle: 'Full-Stack & Mobile Application Developer • Damascus, Syria',
-      credit: 'Crafted with Flutter & Laravel expertise',
+      subtitle: 'Full-Stack & Mobile Developer  •  Damascus, Syria',
+      bio: 'Passionate software engineer specializing in Flutter mobile apps, Laravel REST APIs, and enterprise-grade C# systems. Open to exciting opportunities.',
+      credit: 'Crafted with expertise in Flutter & Laravel',
     },
   },
   ar: {
@@ -287,8 +288,9 @@ export const translations = {
     },
     footer: {
       name: 'مجدولين محمود',
-      subtitle: 'مطورة تطبيقات الموبايل والويب المتكاملة • دمشق، سوريا',
-      credit: 'تم البناء والبرمجة بخبرات Flutter & Laravel',
+      subtitle: 'مطوِّرة تطبيقات الجوال والويب المتكاملة  •  دمشق، سوريا',
+      bio: 'مهندسة برمجيات متخصصة في تطوير تطبيقات الجوال باستخدام Flutter، وتصميم واجهات برمجية متكاملة بـ Laravel، وبناء أنظمة سطح المكتب المؤسسية بـ C#. أسعى دائماً إلى الريادة والتميز.',
+      credit: 'مُصمَّم ومُطوَّر بخبرة وشغف في Flutter و Laravel',
     },
   },
 };
