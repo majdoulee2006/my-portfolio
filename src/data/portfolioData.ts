@@ -36,7 +36,7 @@ export const projectsDataEn: Project[] = [
       'Relational database architecture designed in MySQL with indexing'
     ],
     metrics: [
-      { label: 'Graduation Score', value: '96%' },
+      { label: 'Graduation Project', value: '96%' },
       { label: 'Architecture', value: 'Clean Code + BLoC' },
       { label: 'API Endpoints', value: '45+' }
     ],
@@ -326,7 +326,7 @@ export const educationData: EducationItem[] = [
   }
 ];
 export const statsData = [
-  { label: 'Graduation Score', value: '96%', detail: 'EduBridge Project' },
+  { label: 'Graduation Project', value: '96%', detail: 'EduBridge Project' },
   { label: 'IT Diploma Grade', value: '83.84%', detail: 'Damascus Training Centre' },
   { label: 'Core Frameworks', value: 'Flutter & Laravel', detail: 'Mobile & Backend' },
   { label: 'Status', value: 'Ready to Hire', detail: 'Junior & Internship Roles' },

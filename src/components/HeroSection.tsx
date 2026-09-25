@@ -19,7 +19,11 @@ import {
   Award,
   Zap,
   Download,
-  FileText
+  FileText,
+  Trophy,
+  Code2,
+  User,
+  CheckCircle2
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
@@ -30,6 +34,7 @@ interface HeroProps {
 export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
+  const [cardView, setCardView] = useState<'profile' | 'code'>('profile');
   const { t, isRtl } = useLanguage();
 
   const rolesList = t('hero.roles');
@@ -125,9 +130,13 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
                 <GraduationCap size={14} className="text-indigo-400" />
                 <span>{t('hero.institution')}</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold">
-                <Award size={14} className="text-amber-400" />
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold shadow-sm">
+                <Trophy size={14} className="text-amber-400" />
                 <span>{t('hero.scoreBadge')}</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-300 font-bold shadow-sm">
+                <Award size={14} className="text-sky-400" />
+                <span>{t('hero.diplomaBadge')}</span>
               </div>
             </div>
 
@@ -262,7 +271,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
 
           </motion.div>
 
-          {/* Developer Visual Code / Floating Hero Card */}
+          {/* Developer Visual Profile / Interactive Hero Card */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -273,50 +282,194 @@ export const HeroSection: React.FC<HeroProps> = ({ onContactClick }) => {
             {/* Glowing border card wrapper */}
             <div className="relative rounded-[32px] p-1 bg-gradient-to-br from-sky-500/30 via-indigo-500/20 to-purple-500/30 shadow-2xl shadow-sky-500/10">
               
-              <div className="rounded-[28px] bg-zinc-950/90 backdrop-blur-xl p-6 border border-zinc-800/80 space-y-6 overflow-hidden relative">
+              <div className="rounded-[28px] bg-zinc-950/90 backdrop-blur-xl p-6 border border-zinc-800/80 space-y-5 overflow-hidden relative">
                 
-                {/* Visual Code Terminal Window Header */}
+                {/* Visual Card Header with Tab Switcher */}
                 <div className="flex items-center justify-between border-b border-zinc-800/80 pb-4">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
                     <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                    <span className="text-xs font-mono text-zinc-400 ml-2">{t('hero.terminalTitle')}</span>
+                    <span className="text-xs font-mono text-zinc-400 ml-2 hidden sm:inline-block">
+                      {cardView === 'profile' ? (isRtl ? 'ملف_المطور.dart' : 'developer_profile.dart') : t('hero.terminalTitle')}
+                    </span>
                   </div>
-                  <Terminal size={14} className="text-zinc-500" />
+
+                  {/* Dual Mode Switcher Tabs */}
+                  <div className="flex items-center gap-1 bg-zinc-900/90 p-1 rounded-xl border border-zinc-800 text-[11px] font-mono">
+                    <button
+                      type="button"
+                      onClick={() => setCardView('profile')}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                        cardView === 'profile'
+                          ? 'bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/35 shadow-sm'
+                          : 'text-zinc-400 hover:text-zinc-200'
+                      }`}
+                    >
+                      <User size={13} />
+                      <span>{t('hero.cardTabProfile')}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCardView('code')}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                        cardView === 'code'
+                          ? 'bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/35 shadow-sm'
+                          : 'text-zinc-400 hover:text-zinc-200'
+                      }`}
+                    >
+                      <Code2 size={13} />
+                      <span>{t('hero.cardTabCode')}</span>
+                    </button>
+                  </div>
                 </div>
 
-                {/* Developer Spec Snippet */}
-                <div className="font-mono text-xs space-y-2 text-zinc-300 leading-relaxed overflow-x-auto">
-                  <p className="text-purple-400">class <span className="text-sky-300">SoftwareEngineer</span> &#123;</p>
-                  <p className="pl-4 text-zinc-400">// Core Stack Architecture</p>
-                  <p className="pl-4">
-                    <span className="text-indigo-400">final</span> <span className="text-amber-300">mobile</span> = <span className="text-emerald-400">'Flutter (BLoC + Clean)'</span>;
-                  </p>
-                  <p className="pl-4">
-                    <span className="text-indigo-400">final</span> <span className="text-amber-300">backend</span> = <span className="text-emerald-400">'Laravel REST API'</span>;
-                  </p>
-                  <p className="pl-4">
-                    <span className="text-indigo-400">final</span> <span className="text-amber-300">database</span> = <span className="text-emerald-400">'MySQL Relational'</span>;
-                  </p>
-                  <p className="pl-4">
-                    <span className="text-indigo-400">final</span> <span className="text-amber-300">desktop</span> = <span className="text-emerald-400">'C# .NET Enterprise'</span>;
-                  </p>
-                  <p className="pl-4 text-zinc-400 mt-2">// Academic Achievement</p>
-                  <p className="pl-4">
-                    <span className="text-indigo-400">final</span> <span className="text-amber-300">gradScore</span> = <span className="text-sky-400">96.0</span>; <span className="text-emerald-300">// Outstanding</span>
-                  </p>
-                  <p className="pl-4">
-                    <span className="text-indigo-400">final</span> <span className="text-amber-300">diplomaGrade</span> = <span className="text-sky-400">83.84</span>;
-                  </p>
-                  <p className="text-purple-400">&#125;</p>
-                </div>
+                {/* Card Content: Profile View (Default) vs Code View */}
+                {cardView === 'profile' ? (
+                  <motion.div 
+                    key="profile-view"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+                    {/* Profile ID Card Header */}
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-purple-500/10 border border-sky-500/20">
+                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400 via-indigo-500 to-purple-600 p-0.5 shadow-lg shadow-sky-500/20 shrink-0">
+                        <div className="w-full h-full bg-zinc-950 rounded-[14px] flex items-center justify-center font-display font-extrabold text-base sm:text-lg text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-indigo-300">
+                          MM
+                        </div>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-sm sm:text-base font-bold text-white font-display truncate">
+                            {t('hero.name')}
+                          </h3>
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" title="Ready to Work" />
+                        </div>
+                        <p className="text-xs text-sky-400 font-mono truncate">
+                          Flutter & Mobile Specialist
+                        </p>
+                        <p className="text-[11px] text-zinc-400 font-sans truncate">
+                          {t('hero.institution')}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Academic Credentials - Explicit Distinction between Project (96%) and GPA (83.84%) */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      
+                      {/* 1. Graduation Project Distinction Card (96%) */}
+                      <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col justify-between space-y-2 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-amber-500/10 rounded-full blur-xl pointer-events-none" />
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-mono text-amber-300 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                            <Trophy size={13} className="text-amber-400" />
+                            {isRtl ? 'مشروع التخرج' : 'Grad Project'}
+                          </span>
+                          <span className="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 text-[10px] font-mono font-bold">
+                            EduBridge
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-black text-amber-300 font-display">96%</span>
+                          <span className="text-[11px] text-amber-200/90 font-medium">
+                            {isRtl ? 'امتياز عالي' : 'High Honors'}
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-zinc-400 leading-tight">
+                          {isRtl ? 'علامة مشروع التخرج الأكاديمي' : 'Graduation project final score'}
+                        </p>
+                      </div>
+
+                      {/* 2. Cumulative Diploma Grade (83.84%) */}
+                      <div className="p-3.5 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex flex-col justify-between space-y-2 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-sky-500/10 rounded-full blur-xl pointer-events-none" />
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-mono text-sky-300 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                            <Award size={13} className="text-sky-400" />
+                            {isRtl ? 'معدل الدبلوم' : 'Diploma GPA'}
+                          </span>
+                          <span className="px-2 py-0.5 rounded-md bg-sky-500/20 text-sky-300 text-[10px] font-mono font-bold">
+                            DTC
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-black text-sky-300 font-display">83.84%</span>
+                          <span className="text-[11px] text-sky-200/90 font-medium">
+                            {isRtl ? 'معدل الدبلوم' : 'IT Diploma Grade'}
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-zinc-400 leading-tight">
+                          {isRtl ? 'معدل التخرج العام للدبلوم' : 'Cumulative graduation diploma GPA'}
+                        </p>
+                      </div>
+
+                    </div>
+
+                    {/* Core Technical Highlights Chips */}
+                    <div className="p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-2">
+                      <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-wider block">
+                        {isRtl ? 'المعمارية البرمجية الأساسية' : 'Core Architecture Stack'}
+                      </span>
+                      <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
+                          <Smartphone size={13} className="text-sky-400 shrink-0" />
+                          <span className="truncate">Flutter (BLoC)</span>
+                        </div>
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
+                          <Terminal size={13} className="text-red-400 shrink-0" />
+                          <span className="truncate">Laravel REST</span>
+                        </div>
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
+                          <Database size={13} className="text-amber-400 shrink-0" />
+                          <span className="truncate">MySQL Relational</span>
+                        </div>
+                        <div className="flex items-center gap-2 p-2 rounded-xl bg-zinc-950 border border-zinc-800/90 text-zinc-300">
+                          <Zap size={13} className="text-purple-400 shrink-0" />
+                          <span className="truncate">C# .NET Desktop</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div 
+                    key="code-view"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="font-mono text-xs space-y-2 text-zinc-300 leading-relaxed overflow-x-auto"
+                  >
+                    <p className="text-purple-400">class <span className="text-sky-300">SoftwareEngineer</span> &#123;</p>
+                    <p className="pl-4 text-zinc-400">// Core Stack Architecture</p>
+                    <p className="pl-4">
+                      <span className="text-indigo-400">final</span> <span className="text-amber-300">mobile</span> = <span className="text-emerald-400">'Flutter (BLoC + Clean)'</span>;
+                    </p>
+                    <p className="pl-4">
+                      <span className="text-indigo-400">final</span> <span className="text-amber-300">backend</span> = <span className="text-emerald-400">'Laravel REST API'</span>;
+                    </p>
+                    <p className="pl-4">
+                      <span className="text-indigo-400">final</span> <span className="text-amber-300">database</span> = <span className="text-emerald-400">'MySQL Relational'</span>;
+                    </p>
+                    <p className="pl-4">
+                      <span className="text-indigo-400">final</span> <span className="text-amber-300">desktop</span> = <span className="text-emerald-400">'C# .NET Enterprise'</span>;
+                    </p>
+                    <p className="pl-4 text-zinc-400 mt-2">// Academic Excellence</p>
+                    <p className="pl-4">
+                      <span className="text-indigo-400">final</span> <span className="text-amber-300">graduationProject</span> = <span className="text-sky-400">96.0</span>; <span className="text-emerald-300">// EduBridge System (High Honors)</span>
+                    </p>
+                    <p className="pl-4">
+                      <span className="text-indigo-400">final</span> <span className="text-amber-300">diplomaGPA</span> = <span className="text-sky-400">83.84</span>; <span className="text-zinc-500">// DTC Cumulative GPA (83%)</span>
+                    </p>
+                    <p className="text-purple-400">&#125;</p>
+                  </motion.div>
+                )}
 
                 {/* Highlights Summary Pills */}
                 <div className="pt-4 border-t border-zinc-800/80 grid grid-cols-2 gap-3">
                   <div className={`p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 ${isRtl ? 'text-right' : 'text-left'}`}>
                     <span className="text-[10px] text-zinc-500 font-mono block">{t('hero.gradPillLabel')}</span>
-                    <span className="text-lg font-bold text-emerald-400 font-display">{t('hero.gradPillVal')}</span>
+                    <span className="text-lg font-bold text-amber-400 font-display">{t('hero.gradPillVal')}</span>
                   </div>
                   <div className={`p-3 rounded-2xl bg-zinc-900/80 border border-zinc-800 ${isRtl ? 'text-right' : 'text-left'}`}>
                     <span className="text-[10px] text-zinc-500 font-mono block">{t('hero.specPillLabel')}</span>
